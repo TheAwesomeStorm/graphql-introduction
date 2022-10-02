@@ -7,10 +7,21 @@ export class UserDataSource extends RESTDataSource {
   }
 
   async getUsers() {
-    return this.get('/users');
+    const users = await this.get('/users');
+    return users.map(async (user) => {
+      return {
+        id: user.id,
+        nome: user.nome,
+        email: user.email,
+        ativo: user.ativo,
+        role: await this.get(`/roles/${user.role}`)
+      }
+    })
   }
 
   async getUserById(id: number) {
-    return this.get(`/users/${id}`);
+    const user = await this.get(`/users/${id}`);
+    user.role = this.get(`/roles/${user.role}`);
+    return user;
   }
 }
