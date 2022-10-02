@@ -8,11 +8,14 @@ export const userResolver = {
     }
   },
   Mutation: {
-    adicionarUser: async (_root: any, user: any, {dataSources}: any) => {
+    adicionarUser: async (_root: any, user: any, { dataSources }: any) => {
       return await dataSources.userDataSource.adicionarUser(user);
     },
-    atualizarUser: async (_root: any, user: any, {dataSources}: any) => {
+    atualizarUser: async (_root: any, user: any, { dataSources }: any) => {
       return await dataSources.userDataSource.atualizarUser(user);
+    },
+    removerUser: async (_root, { id }, { dataSources }) => {
+      return await dataSources.userDataSource.removerUser(id);
     }
   }
 }

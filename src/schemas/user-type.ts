@@ -22,5 +22,6 @@ export const userType = gql`
     type Mutation {
         adicionarUser(nome: String!, ativo: Boolean!, email: String, role: String!): User
         atualizarUser(id: ID!, nome: String!, ativo: Boolean!, email: String, role: String!): User
+        removerUser(id: ID!): ID!
     }
 `;

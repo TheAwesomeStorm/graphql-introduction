@@ -50,4 +50,9 @@ export class UserDataSource extends RESTDataSource {
       role: role[0]
     }
   }
+
+  async removerUser(id: number) {
+    await this.delete(`users/${id}`);
+    return id;
+  }
 }
