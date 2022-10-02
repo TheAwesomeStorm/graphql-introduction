@@ -10,6 +10,9 @@ export const userResolver = {
   Mutation: {
     adicionarUser: async (_root: any, user: any, {dataSources}: any) => {
       return await dataSources.userDataSource.adicionarUser(user);
+    },
+    atualizarUser: async (_root: any, user: any, {dataSources}: any) => {
+      return await dataSources.userDataSource.atualizarUser(user);
     }
   }
 }
