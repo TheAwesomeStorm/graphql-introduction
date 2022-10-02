@@ -4,9 +4,21 @@ export const userResolver = {
   Datetime: new GraphQLScalarType({
     name: 'Datetime',
     description: 'string de data e hora no formato ISO-8601',
-    serialize: (value) => value.toISOString(),
-    parseValue: (value) => new Date(value),
-    parseLiteral: (ast) => new Date(ast.value)
+    serialize: (value) => {
+      if (!(value instanceof Date)) {
+        throw new Error(`Scalar "Datetime" cannot represent ${value} since it is not a Date`)
+      }
+      return value.toISOString()
+    },
+    parseValue: (value) => {
+      if (typeof value !== 'string') {
+        throw new Error(`Scalar "Datetime" cannot represent ${value} since it is not a Date`)
+      }
+      return new Date(value)
+    },
+    parseLiteral: (ast) => {
+      return new Date(ast['value']);
+    }
   }),
   RolesType: {
     ESTUDANTE: "Estudante",
