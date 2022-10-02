@@ -41,6 +41,14 @@
       "ativo": true,
       "email": "m@m.com",
       "role": 2
+    },
+    {
+      "nome": "Mock",
+      "ativo": true,
+      "email": "mock@mock.com",
+      "role": 1,
+      "createdAt": "2022-10-02T00:00:00.000Z",
+      "id": 7
     }
   ],
   "roles": [
