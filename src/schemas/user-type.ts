@@ -9,6 +9,14 @@ export const userType = gql`
         COORDENACAO
     }
     
+    input UserInput {
+        nome: String
+        ativo: Boolean
+        email: String
+        role: RolesType
+        createdAt: Datetime
+    }
+    
     type User {
         id: ID!
         nome: String!
@@ -29,8 +37,8 @@ export const userType = gql`
     }
     
     type Mutation {
-        adicionarUser(nome: String!, ativo: Boolean!, email: String, role: RolesType!, createdAt: Datetime): User
-        atualizarUser(id: ID!, nome: String!, ativo: Boolean!, email: String, role: RolesType!): User
+        adicionarUser(user: UserInput): User
+        atualizarUser(id: ID!, user: UserInput): User
         removerUser(id: ID!): ID!
     }
 `;
