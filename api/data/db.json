@@ -41,6 +41,13 @@
       "ativo": true,
       "email": "m@m.com",
       "role": 2
+    },
+    {
+      "nome": "Mock",
+      "ativo": true,
+      "email": "mock@mock.com",
+      "role": 1,
+      "id": 7
     }
   ],
   "roles": [

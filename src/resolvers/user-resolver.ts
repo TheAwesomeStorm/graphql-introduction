@@ -6,5 +6,10 @@ export const userResolver = {
     user: (_parent: any, { id }: any, { dataSources }: any) => {
       return dataSources.userDataSource.getUserById(id);
     }
+  },
+  Mutation: {
+    adicionarUser: async (_root: any, user: any, {dataSources}: any) => {
+      return await dataSources.userDataSource.adicionarUser(user);
+    }
   }
 }

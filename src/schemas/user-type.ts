@@ -18,4 +18,8 @@ export const userType = gql`
         users: [User],
         user(id: ID!): User
     }
+    
+    type Mutation {
+        adicionarUser(nome: String!, ativo: Boolean!, email: String, role: String!): User
+    }
 `;
