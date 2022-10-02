@@ -9,4 +9,8 @@ export class UserDataSource extends RESTDataSource {
   async getUsers() {
     return this.get('/users');
   }
+
+  async getUserById(id: number) {
+    return this.get(`/users/${id}`);
+  }
 }
