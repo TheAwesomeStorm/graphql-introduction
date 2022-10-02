@@ -1,9 +1,15 @@
 import { RESTDataSource } from 'apollo-datasource-rest';
 
 export class UserDataSource extends RESTDataSource {
+  private readonly customResponse: { code: number; mensagem: string };
+
   constructor () {
     super();
     this.baseURL = 'http://localhost:3000';
+    this.customResponse = {
+      code: 200,
+      mensagem: "Sucesso!"
+    }
   }
 
   async getUsers() {
@@ -46,13 +52,16 @@ export class UserDataSource extends RESTDataSource {
       role: role[0].id
     });
     return {
-      ...user,
-      role: role[0]
+      ...this.customResponse,
+      user: {
+        ...user,
+        role: role[0]
+      }
     }
   }
 
   async removerUser(id: number) {
     await this.delete(`users/${id}`);
-    return id;
+    return this.customResponse;
   }
 }

@@ -16,6 +16,22 @@ export const userType = gql`
         role: RolesType
         createdAt: Datetime
     }
+
+    interface Resposta {
+        code: Int!
+        mensagem: String!
+    }
+    
+    type RemoverUserResposta implements Resposta {
+        code: Int!
+        mensagem: String!
+    }
+    
+    type AtualizarUserResposta implements Resposta {
+        code: Int!
+        mensagem: String!
+        user: User!
+    }
     
     type User {
         id: ID!
@@ -38,7 +54,7 @@ export const userType = gql`
     
     type Mutation {
         adicionarUser(user: UserInput): User
-        atualizarUser(id: ID!, user: UserInput): User
-        removerUser(id: ID!): ID!
+        atualizarUser(id: ID!, user: UserInput): AtualizarUserResposta
+        removerUser(id: ID!): RemoverUserResposta!
     }
 `;
