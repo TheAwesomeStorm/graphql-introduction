@@ -8,6 +8,11 @@ export const userResolver = {
     parseValue: (value) => new Date(value),
     parseLiteral: (ast) => new Date(ast.value)
   }),
+  RolesType: {
+    ESTUDANTE: "Estudante",
+    DOCENTE: 'Docente',
+    COORDENACAO: 'Coordenação'
+  },
   Query: {
     users: (_parent: any, _args: any, { dataSources }: any) => {
       return dataSources.userDataSource.getUsers();

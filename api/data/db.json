@@ -49,6 +49,14 @@
       "role": 1,
       "createdAt": "2022-10-02T00:00:00.000Z",
       "id": 7
+    },
+    {
+      "nome": "Mock",
+      "ativo": true,
+      "email": "mock@mock.com",
+      "role": 1,
+      "createdAt": "2022-10-02T00:00:00.000Z",
+      "id": 8
     }
   ],
   "roles": [
