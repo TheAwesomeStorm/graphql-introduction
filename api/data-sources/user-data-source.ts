@@ -1,5 +1,7 @@
 import { RESTDataSource } from 'apollo-datasource-rest';
+import { Service } from 'typedi';
 
+@Service()
 export class UserDataSource extends RESTDataSource {
   private readonly customResponse: { code: number; mensagem: string };
 
