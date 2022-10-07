@@ -3,6 +3,8 @@ import { Service } from 'typedi';
 import { BaseService } from './base-service';
 import { UserInput } from '../graphql/input-types/user-input';
 import { Role } from '../graphql/types/role';
+import { RemoveUserResponse } from '../graphql/types/remove-user-response';
+import { UpdateUserResponse } from '../graphql/types/update-user-response';
 
 @Service()
 export class UserService extends BaseService {
@@ -61,11 +63,21 @@ export class UserService extends BaseService {
       createdAt: userData.createdAt
     }
     await this.put(this.BASE_URL + `/users/${userId}`, user);
-    return this.getUserById(userId);
+    const updatedUser = await this.getUserById(userId);
+    const response: UpdateUserResponse = {
+      code: 1,
+      message: 'Sucesso',
+      user: updatedUser
+    }
+    return response;
   }
 
   public async deleteUser(userId: number) {
     await this.delete(this.BASE_URL + `/users/${userId}`)
-    return 1;
+    const response: RemoveUserResponse = {
+      code: 1,
+      message: 'Sucesso'
+    }
+    return response;
   }
 }

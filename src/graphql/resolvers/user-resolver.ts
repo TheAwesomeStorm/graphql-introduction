@@ -3,6 +3,8 @@ import { User } from '../types/user';
 import { UserService } from '../../services/user-service';
 import { Service } from 'typedi';
 import { UserInput } from '../input-types/user-input';
+import { RemoveUserResponse } from '../types/remove-user-response';
+import { UpdateUserResponse } from '../types/update-user-response';
 
 @Service()
 @Resolver(User)
@@ -22,17 +24,17 @@ export class UserResolver {
   }
 
   @Mutation(returns => User)
-  public async addUser(@Arg('data') userData: UserInput) {
+  public async addUser(@Arg('data') userData: UserInput): Promise<User> {
     return await this.userService.createUser(userData);
   }
 
-  @Mutation(returns => User)
-  public async updateUser(@Arg('id') id: number, @Arg('data') data: UserInput){
+  @Mutation(returns => UpdateUserResponse)
+  public async updateUser(@Arg('id') id: number, @Arg('data') data: UserInput): Promise<UpdateUserResponse> {
     return await this.userService.updateUser(id, data);
   }
 
-  @Mutation(returns => Number)
-  public async deleteUser(@Arg('id') id: number) {
+  @Mutation(returns => RemoveUserResponse)
+  public async deleteUser(@Arg('id') id: number): Promise<RemoveUserResponse> {
     return await this.userService.deleteUser(id);
   }
 }
