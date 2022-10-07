@@ -2,7 +2,7 @@ import { ApolloServer } from 'apollo-server';
 import { mergeTypeDefs, mergeResolvers } from '@graphql-tools/merge';
 import { userResolver } from './resolvers/user-resolver';
 import { userType } from './schemas/user-type';
-import { UserDataSource } from '../api/data-sources/user-data-source';
+import { UserDataSource } from './data-sources/user-data-source';
 
 const typeDefs = mergeTypeDefs([
   userType
