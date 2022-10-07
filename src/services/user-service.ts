@@ -50,6 +50,20 @@ export class UserService extends BaseService {
     return await this.getUserById(users.length + 1);
   }
 
+  public async updateUser(userId: number, userData: UserInput) {
+    const role = await this.get<Role[]>(this.BASE_URL + `/roles?type=${userData.role}`);
+    const user = {
+      id: userId,
+      nome: userData.nome,
+      ativo: userData.ativo,
+      email: userData.email,
+      role: role[0].id,
+      createdAt: userData.createdAt
+    }
+    await this.put(this.BASE_URL + `/users/${userId}`, user);
+    return this.getUserById(userId);
+  }
+
   public async deleteUser(userId: number) {
     await this.delete(this.BASE_URL + `/users/${userId}`)
     return 1;
