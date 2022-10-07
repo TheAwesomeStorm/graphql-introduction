@@ -25,4 +25,9 @@ export class UserResolver {
   public async addUser(@Arg('data') userData: UserInput) {
     return await this.userService.createUser(userData);
   }
+
+  @Mutation(returns => Number)
+  public async deleteUser(@Arg('id') id: number) {
+    return await this.userService.deleteUser(id);
+  }
 }

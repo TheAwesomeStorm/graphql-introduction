@@ -49,4 +49,9 @@ export class UserService extends BaseService {
     await this.post(this.BASE_URL + '/users', user);
     return await this.getUserById(users.length + 1);
   }
+
+  public async deleteUser(userId: number) {
+    await this.delete(this.BASE_URL + `/users/${userId}`)
+    return 1;
+  }
 }
