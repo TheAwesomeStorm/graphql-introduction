@@ -49,14 +49,6 @@
       "role": 1,
       "createdAt": "2022-10-02T00:00:00.000Z",
       "id": 7
-    },
-    {
-      "id": 8,
-      "nome": "teste",
-      "ativo": true,
-      "email": "teste@teste.com",
-      "role": 2,
-      "createdAt": "2022-10-02T00:00:00.000Z"
     }
   ],
   "roles": [

@@ -1,9 +1,9 @@
 import { registerEnumType } from 'type-graphql';
 
 export enum AvailableRoles {
-  ESTUDANTE = 'estudante',
-  DOCENTE = 'docente',
-  COORDENACAO = 'coordenação',
+  ESTUDANTE = 'Estudante',
+  DOCENTE = 'Docente',
+  COORDENACAO = 'Coordenação',
 }
 
 registerEnumType(AvailableRoles, {

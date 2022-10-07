@@ -9,7 +9,8 @@ async function bootstrap () {
     resolvers: [
       UserResolver
     ],
-    container: Container
+    container: Container,
+    emitSchemaFile: false
   })
 
   const server = new ApolloServer({

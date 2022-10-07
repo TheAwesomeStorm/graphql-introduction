@@ -3,10 +3,7 @@ import { AvailableRoles } from '../enums/available-roles-enum';
 import { CustomDatetimeScalar } from '../scalars/custom-datetime-scalar';
 
 @InputType()
-class UserInput {
-  @Field(type => ID)
-  id: number;
-
+export class UserInput {
   @Field()
   nome: string;
 
